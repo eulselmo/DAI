@@ -1,0 +1,10 @@
+{% extends "plantilla2.html"%}
+{% block content %}
+	{% for post in posts %} 
+	<article id="publicacion">
+	<p id="texto">{{ post.autor.nombre }} dice: <b>{{ post.texto }}</b></p> 
+	</article>
+	{% endfor %}
+{% endblock %}
+
+

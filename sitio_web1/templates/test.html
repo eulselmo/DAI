@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+<head>
+</head>
+<body>
+  <link href="{% static 'css/style.css' %}"
+  rel="stylesheet" media="screen">
+  <a href="{% url 'index' %}">INDEX</a>
+
+  <ul>
+  {% for item in lista %}
+     <li>{{item.name}}</li>
+  {% endfor %}
+  </ul>
+</body>
+</html>

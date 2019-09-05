@@ -1,0 +1,11 @@
+{% extends "plantilla2.html" %}
+{% block content%}
+	<form action="{% url 'introducir' %}" method="post">
+		<p>Introduce el nuevo restaurante: </p>
+		<div class="form-group">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Enviar">
+		</div>
+	</form>
+{% endblock %}

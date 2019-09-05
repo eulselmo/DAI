@@ -1,0 +1,69 @@
+{% extends "plantilla2.html" %}
+{% block content%}
+        <script>
+                var pag=0
+                var valores='{{valor}}'
+        </script>
+
+	<form action="{% url 'buscar' %}" method="post">
+		<p>Buscar Restaurantes:</p>
+		<div class="form-group">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Buscar">
+		</div>
+	</form>
+      
+        <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href$
+                        <li class="page-item"><a class="page-link" href$
+                </ul>
+        </nav>
+        <table style="width:110%">
+                <thead>
+                <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Direccion</th>
+			<th>Coordenadas</th>
+			<th>Mapa</th>
+                </tr>
+                </thead>
+		
+		                                <script>
+                                       
+                                        function initMap(id_mapa, lugar) {
+                                                var map = new google.maps.Map(document.getElementById(id_mapa), {
+                                                        center: lugar,
+                                                        zoom: 8
+                                                });
+                                        }
+                                 </script>
+
+		
+                <tbody id="cuerpo_tabla">
+                {% for i in lista %}
+                <tr>
+                        <td>{{i.nombre}}</td>
+                        <td>{{i.tipo}}</td>
+                        <td>{{i.direccion}}</td>
+			<td>{{i.coordenadas}}</td>
+			<td>
+				<div id="map{{i.id}}" style="width:200px; height:200px"></div>
+				<script>
+					var lugar{{i.id}}={lat: parseFloat('{{ i.mapa1 }}'), lng: parseFloat('{{ i.mapa0 }}')};
+                   			var id_mapa{{i.id}}='map{{i.id}}';
+					function callback{{i.id}}(){
+						initMap(id_mapa{{i.id}},lugar{{i.id}});
+					}
+       				 </script>
+			
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDraglDGYiHS6SQhxMON2kkOi2oI1gAb4k&callback=callback{{i.id}}" 
+				async defer></script>
+			</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+        </table>
+{% endblock %}

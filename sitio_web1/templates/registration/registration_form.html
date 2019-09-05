@@ -1,0 +1,9 @@
+{% extends "plantilla2.html" %}
+{% block content%}
+<h1>Registrate como usuario</h1>
+	<form action="." method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit"/>
+	</form>
+{% endblock %}

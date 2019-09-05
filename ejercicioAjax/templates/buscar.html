@@ -1,0 +1,38 @@
+{% extends "plantilla2.html" %}
+{% block content%}
+	<script>
+		var pag=0
+		var valores='{{valor}}'
+	</script>
+	<form action="buscar" method="post">
+	<p>Buscar Restaurantes:</p>
+	<input type = "text" name="name">
+	<input type="submit" value="Buscar" id="buscar">
+	</form>
+	<br>
+	<nav aria-label="Page navigation example">
+  		<ul class="pagination">
+    			<li class="page-item"><a class="page-link" href="#" onclick="pag=pag-1; click_pag(pag);return false;">PREV</a></li>
+    			<li class="page-item"><a class="page-link" href="#" onclick="pag=pag+1; click_pag(pag);return false;" >NEXT</a></li>
+  		</ul>
+	</nav>
+	<table style="width:150%">
+                <thead>
+		<tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Direccion</th>
+                </tr>
+		</thead>
+		
+		<tbody id="cuerpo_tabla">
+		{% for i in lista %}
+		<tr>
+			<td>{{i.nombre}}</td>
+			<td>{{i.tipo}}</td>
+			<td>{{i.direccion}}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

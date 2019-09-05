@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% block content %}
+
+	{% if loggedIn %}
+		<h3> Bienvenido((nombre))</h3>
+
+	{% else %}
+		<form method="post" action="/">
+			<input type="nombre" name="nombre" placeholder="nombre">
+			<input type="contrasenia" name="contrasenia" placeholder="contrasenia">
+		</form>
+	{% endif %}
+{% endblock %}

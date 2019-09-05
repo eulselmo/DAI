@@ -1,0 +1,22 @@
+{% extends "plantilla2.html" %}
+{% block content%}
+	<form action="buscando" method="post">
+	<p>Buscar Restaurantes:</p>
+	<input type = "text" name="name">
+	<input type="submit" value="Buscar">
+	</form>
+	<br>
+	<table style="width:100%">
+		<tr>
+			<th>Nombre</th>
+			<th>Tipo</th>
+			<th>Direccion</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+
+	</table>
+{% endblock %}

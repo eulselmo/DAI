@@ -1,0 +1,30 @@
+{% extends "plantilla2.html" %}
+{% block content%}
+	<form action="buscar" method="post">
+	<p>Buscar Restaurantes:</p>
+	<input type = "text" name="name">
+	<input type="submit" value="Buscar">
+	</form>
+	<br>
+	<nav aria-label="Page navigation example">
+  		<ul class="pagination">
+    			<li class="page-item"><a class="page-link" href="#">1</a></li>
+    			<li class="page-item"><a class="page-link" href="#">2</a></li>
+  		</ul>
+	</nav>
+	<table style="width:250%">
+                <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Direccion</th>
+                </tr>
+
+		{% for i in lista %}
+		<tr>
+			<td>{{i.nombre}}</td>
+			<td>{{i.tipo}}</td>
+			<td>{{i.direccion}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

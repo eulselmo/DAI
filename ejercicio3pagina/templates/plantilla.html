@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+
+                <title>{{ titulo }}</title>
+
+                <link rel= "stylesheet" type="text/css" href= "static/css/index.css">
+
+                <link rel="shortcut icon" href="icono/icono.ico">
+
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        </head>
+ 
+       <body>
+                <header>
+                        <a href="portada.html"><img src="https://previews.123rf$
+                        <p id="titulo">HiFIVE</p>
+                        <p id="eslogan">{{eslogan}}!</p>
+
+                <article>
+                        {% if nombre%}
+                        <p id= "usuario">Bienvenido {{nombre}}</p>
+                        <a target="_blank" id="Entrar" href="/login">Salir</a>
+
+                        {% else %}
+                        <form action="login" method="post">
+                        <p id="usuario">Usuario:</p>
+                        <input type = "text" id = "campoDeTexto1" name="nombre"$
+
+                        <p id="contrasena">Contrase&ntilde;a: </p>
+                        <input type = "password" id = "campoDeTexto1" name="con$
+                        <br>
+                        <br>
+                     	<input type="submit" value="Entrar" id="Entrar">
+                        </form>
+                        {% endif %}
+                </article>
+                </header>
+
+
+
+                <section id="entradas">
+
+			{% block content %}{% endblock %}                      
+
+                </section>
+
+                <aside>
+
+                                <nav id="opciones">
+
+                                        <a id="cursor" href="index">BIO$
+
+                                        <a id="cursor" href="fotos">FOT$
+
+                                        <a id="cursor" href="datos">INF$
+
+                                        <a id="cursor" href="editar">ED$
+
+                                </nav>
+
+                </aside>
+
+                <footer>
+
+                        <h4>Contacto</h4>
+
+                        <p>{{ correo }}</p>
+
+                        <address>{{ direccion }}</address>
+
+                </footer>
+        </body>
+
+</html>
+
+

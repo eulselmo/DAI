@@ -1,0 +1,13 @@
+{% extends "plantilla.html" %}
+{% block content%}
+	<form action="editar" method="post">
+	<p>Usuario:</p>
+	<input type = "text" name="nombre" value = "{{nombre}}" disabled maxlength="15"/> <br>
+
+	<p>Contrase&ntilde;a: </p>
+	<input type = "password" name="contrasenia" placeholder="Contraseña" value="{{contrasenia}}" maxlength="9"/>
+	<br>
+	<br>
+	<input type="submit" value="Editar">
+	</form>
+{% endblock %}

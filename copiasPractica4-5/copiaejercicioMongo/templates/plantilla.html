@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+
+                <title>{{ titulo }}</title>
+
+                <link rel= "stylesheet" type="text/css" href= "static/css/index.css">
+
+                <link rel="shortcut icon" href="icono/icono.ico">
+
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	
+	</head>
+ 
+       <body>
+                <header>
+                        <!--<a href="portada2.html">-->
+				<img src="https://previews.123rf.com/images/blueringmedia/blueringmedia1409/blueringmedia140900101/31499884-Illustration-of-a-hi-five-artwork-with-a-palm-on-a-white-background-Stock-Vector.jpg" id="modificado1">
+			<!--</a>-->
+                        <p id="titulo">HiFIVE</p>
+                        <p id="eslogan">{{eslogan}}!</p>
+
+                <article>
+                        {% if nombre%}
+                        <p id= "usuario">Bienvenido {{nombre}}</p>
+                        <a id="Entrar" href="/logout">Salir</a>
+
+                        {% else %}
+                        <form action="login" method="post">
+                        <p id="usuario" >Usuario:
+                        <input type = "text"  name="nombre"></p>
+			
+                        <p id="clave">Contrase&ntilde;a: 
+                        <input type = "password"  name="contrasenia"></p>
+                     	<input type="submit" value="Entrar" id="Entrar">
+                        </form>
+                        {% endif %}
+                </article>
+                </header>
+
+
+
+                <section id="entradas">
+
+			{% block content %}{% endblock %}                      
+
+                </section>
+
+                <aside>
+
+                                <nav id="opciones">
+
+                                        <a id="cursor" href="index">BIOGRAFIA</a>
+
+                                        <a id="cursor" href="fotos">FOTOS</a>
+
+                                        <a id="cursor" href="datos">INFORMACION</a>
+
+                                        <a id="cursor" href="editar">EDITAR</a>
+
+                                </nav>
+
+                </aside>
+
+                <footer>
+
+                        <h4>Contacto</h4>
+
+                        <p>{{ correo }}</p>
+
+                        <address>{{ direccion }}</address>
+
+                </footer>
+        </body>
+
+</html>
+
+

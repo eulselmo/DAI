@@ -1,0 +1,262 @@
+/*ZONA DE CABECERA*/
+
+header{
+
+	position: absolute;
+
+	top:0;
+
+	background-color: #616262;
+
+	height: 17%;
+
+	width: 100%;
+
+}
+
+#modificado1{
+
+	position: absolute;
+
+	left: 7%;
+
+	top: 3.2%;
+
+	width:8%;
+
+}
+
+#titulo{
+
+	color:#0013BF;
+
+	position: absolute;
+
+	font-size:250%;
+
+	right: 45%;
+
+	margin-top:1.7%;
+
+	font-family:Segoe Script;
+
+}
+#eslogan{
+
+	color:white;
+
+	position: absolute;
+
+	font-size:100%;
+
+	right: 40%;
+
+	margin-top:9%;
+
+	font-family:Segoe Script;
+
+}
+#campoDeTexto1{
+position: absolute;
+right: 2%;
+}
+#usuario{
+position: absolute;
+right: 22%;
+bottom:65%;
+}
+#contrasena{
+position: absolute;
+right: 22%;
+bottom:45%;
+}
+#Entrar{
+position: absolute;
+margin-top:0%;
+right: 7%;
+background-color: #F2F2F2;
+border: 1px solid black;
+}
+
+#modificado2{
+
+	position: absolute;
+
+	border: 1px solid black;
+
+	top: 17%;
+
+	border-radius:100%;
+
+	right:10%;
+
+	width: 5.3%;
+
+	height: 71%;
+
+}
+
+#modificado2:hover{
+
+	cursor: url("icono.ico"), pointer;
+
+}
+
+#salir{
+
+	position: absolute;
+
+	top: 40%;
+
+	right: 3%;
+
+	border: 1px solid black;
+
+	background-color: #F2F2F2;
+
+    color: black;
+
+    text-decoration: none;
+
+    padding: 1px 25px;
+
+	
+
+}
+
+
+
+#opciones a {
+
+	border: 1px solid black;
+
+	background-color: #F2F2F2;
+
+    color: black;
+
+    padding: 1px 25px;
+
+    text-decoration: none;
+
+}
+
+
+
+body{
+
+	background-color: #212222;
+
+}
+
+/*ZONA DE LAS ENTRADAS DE LOS USUARIOS*/
+
+#entradas{
+
+	background-color: #2A22BF;	
+
+	position:absolute;
+
+	top: 21%;
+
+	right:0;
+
+	height:78%;
+
+	width:85%;
+
+	border: 1px solid black;	
+
+	 overflow: scroll;
+}
+
+#publicacion{
+
+	position:relative;
+
+	width:99%;
+
+	height:70%;
+
+	border: 1px solid black;
+
+	background-color: #0BA2FF;
+
+	top: 0%;
+	
+	margin-top: 0.5%;
+	
+	left: 0.5%; 
+
+}
+
+#texto{
+
+	position:relative;
+
+	left:5%;
+
+}
+
+#seleccion{
+
+	position: relative;
+
+	left: 48%;
+
+	top: 2.5%;
+
+	font-size: 200%; 
+
+}
+
+/*NAVEGADOR DE LA PAGINA*/
+aside{	
+
+	position:absolute;
+
+	top:21%;
+
+	left:0.5%;
+
+	height:78%;
+
+	width:14%;
+
+	background-color: #2D5BF1;	
+
+}
+
+#opciones{
+  position: relative;
+
+	top: 1%; 
+
+}
+
+/*ZONA DE CONTACTO*/
+
+footer{
+
+	display:absolute;
+
+	background-color: #FF7C00;
+
+	position:absolute;
+
+	color: black;
+
+	height: 21%;
+
+	width: 100%;
+
+	top:100%;
+
+	}
+
+	a {
+
+		text-decoration: none;
+
+		color: black;
+
+	}

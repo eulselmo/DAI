@@ -1,0 +1,175 @@
+from flask import Flask, render_template, redirect, url_for, request, session, jsonify 
+from pymongo import MongoClient
+
+import os
+import shelve
+import json 
+from bson.json_util import dumps
+client= MongoClient('mongodb://localhost:27017/')
+
+app = Flask(__name__)
+#db= shelve.open('datos.dat', writeback=True)
+
+@app.route('/login', methods=['POST'])
+def login():
+	if request.method == 'POST':
+		db= shelve.open('datos.dat')
+		session['nombre'] = request.form['nombre']
+		#Insertar datos en disco
+		db[session['nombre']]=str(request.form['contrasenia'])
+		session['contrasenia']=request.form['contrasenia']
+		db.close()
+		return redirect(url_for('index'))
+
+@app.route('/index')
+def index():
+	if 'nombre' in session:
+		nombre = session['nombre']
+	else:
+		nombre = None
+
+	posts= [
+		{
+			'autor' : { 'nombre':'Jacinto'},
+			'texto' : 'Se acabo el descanso pre examenes, toca ponerse serios con...'
+		},
+		{
+			'autor' : { 'nombre':'Rosa'},
+			'texto' : 'Este es el segundo comentario'
+		},
+		{
+			'autor' : { 'nombre':'Juan'},
+			'texto' : 'Este es el tercer comentario'
+		},
+		{
+			'autor' : { 'nombre':'Pepe'},
+			'texto' : 'Este es el cuarto comentario'
+		},
+		{
+                        'autor' : { 'nombre':'Angel'},
+			'texto' : 'Este es el quinto comentario'
+		},
+		{
+			'autor' : { 'nombre':'Alvaro'},
+			'texto' : 'Este es el sexto comentario'
+		}
+	]
+	return render_template("index.html", nombre = nombre,  posts=posts, titulo='Hi5', eslogan='La pagina donde te sera facil conocer gente!', correo='hi5@correo.com',direccion='C/ Hospitalet de Lobregat s/n telefono: 9525552155')
+
+@app.route('/datos')
+def datos():
+
+	if 'nombre' and 'contrasenia' in session:
+		db= shelve.open('datos.dat')
+		nombre = db[session['nombre']]
+		db.close()
+	else:
+		nombre = None
+
+	return render_template("datos.html", nombre = nombre, contrasenia=session["contrasenia"] , titulo='Informacion', eslogan='La pagina donde te sera facil conocer gente!', correo='hi5@correo.com',direccion='C/ Hospitalet de Lobregat s/n telefono: 9525552155')
+
+@app.route('/fotos')
+def fotos():
+
+	if 'nombre' in session:
+		nombre = session['nombre']
+		contrasenia = session['contrasenia']
+	else:
+                nombre = None
+
+	posts= [
+                {
+                        'autor' : { 'nombre':'Jacinto'}
+                },
+                {
+                        'autor' : { 'nombre':'Rosa'}
+                },
+                {
+                        'autor' : { 'nombre':'Juan'}
+                },
+                {
+                        'autor' : { 'nombre':'Pepe'}
+                },
+                {
+                        'autor' : { 'nombre':'Angel'}
+                },
+                {
+                        'autor' : { 'nombre':'Alvaro'}                }
+        ]
+
+	return render_template("fotos.html", nombre = nombre, posts=posts, titulo='Fotos', eslogan='La pagina donde te sera facil conocer gente!', correo='hi5@correo.com',direccion='C/ Hospitalet de Lobregat s/n telefono: 9525552155')
+
+
+@app.route('/editar', methods=['GET','POST'])
+def editar():
+
+	if 'nombre' in session:
+		db= shelve.open('datos.dat')
+		nombre = session['nombre']
+		if request.method == 'POST':
+			session['contrasenia']=request.form['contrasenia']
+			#contrasenia= session['contrasenia']
+		else:
+			contrasenia= session['contrasenia']
+			nombre= session['nombre']
+		db.close()
+	else:
+		nombre = None
+		clave = None
+
+	return render_template("editar.html", nombre = nombre, contrasenia=contrasenia, titulo='Editar', eslogan='La pagina donde te sera facil conocer gente!', correo='hi5@correo.com',direccion='C/ Hospitalet de Lobregat s/n telefono: 9525552155')
+
+
+@app.route('/buscar', methods=['GET','POST'])
+def buscar():
+	if 'nombre' in session:
+		nombre = session['nombre']
+	else:
+		nombre = None
+	if request.method == 'POST':
+		cocina=request.form['name']
+		resultados=busqueda_bd(cocina, 0)
+		return render_template("buscar.html", valor= cocina,  lista=resultados,  nombre = nombre, titulo='Hi5', eslogan='La pagina donde te sera facil conocer gente!', correo='hi5@correo.com',direccion='C/ Hospitalet de  Lobregat s/n telefono: 9525552155')
+
+	return render_template("buscar.html", nombre = nombre, titulo='Hi5', eslogan='La pagina donde te sera facil conocer gente!', correo='hi5@correo.com',direccion='C/ Hospitalet de  Lobregat s/n telefono: 9525552155')
+
+@app.route('/get_datos')
+def get_datos():
+	cocina = request.args.get('valor','')
+	pag = int(request.args.get('pag',''))
+	if pag<0:
+		pag=0
+	print(cocina)
+	print(pag)
+	#busqueda = buscar(informacion, num)
+	resultados=busqueda_bd(cocina, pag)
+	return dumps(resultados)
+
+def busqueda_bd(cocina, pag):
+		res_pag=15
+                #Creamos la base de datos
+		db = client.test
+                #Colección de los restaurantes
+		restaurants=db.restaurants
+		lista=[]
+                #Realizamos el find de los datos que se han introducido
+		restaurantes=restaurants.find({'cuisine': cocina}).skip(res_pag*pag).limit(res_pag)
+
+		for restaurante in restaurantes:
+			datos={'nombre': restaurante['name'], 'tipo': restaurante['cuisine'], 'direccion': restaurante['address']['street']}
+			lista.append(datos)
+		return lista
+
+
+@app.route('/logout')
+def logout():
+	session.pop('nombre', None)
+	session.pop('contrasenia', None)
+	return redirect(url_for('index'))
+
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+if __name__ == '__main__':
+	print ("")
+	app.run(host='0.0.0.0', debug = True)
+

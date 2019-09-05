@@ -1,0 +1,11 @@
+{% extends "plantilla.html" %}
+{% block content %}
+	{% if nombre%}
+        <p>Nombre: {{nombre}}</p>
+        <p>Contrase&ntilde;a: {{contrasenia}}</p>
+
+	{% else %}
+        <p>Nombre:</p>
+	<p>Contrase&ntilde;a:</p>
+        {% endif %}
+{% endblock %}

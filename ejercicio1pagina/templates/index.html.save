@@ -1,0 +1,209 @@
+<!doctype html>
+
+<html lang="es">
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<title>Portada</title>
+
+		<link rel= "stylesheet" type="text/css" href= "CSS/portada.css">
+
+		<link rel="shortcut icon" href="icono/icono.ico">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	</head>
+
+	<body>	
+
+
+
+		<header>
+
+
+
+			<a href="portada.html"><img src="fotos/hi5.png" alt = "Logo" id="modificado1"/></a>
+
+			{% if title %} 
+        <title>{{ title }} - microblog</title>
+        {% else %}
+        <title>Welcome to microblog</title>
+        {% endif %}
+
+			<p id="titulo">HiFIVE</p>
+			<p id="eslogan">Conocer gente nunca fue tan facil!</p>
+
+					
+
+
+
+		<article>
+
+
+
+			<p id="usuario">Usuario</p>
+
+			<input type = "text" id = "campoDeTexto1" name="campoDeTexto1" value = "" maxlength="15"/> <br>
+
+			
+
+			
+
+			<p id="contrasena">Contrase&ntilde;a</p>
+
+			<input type = "password" id = "campoDeTexto1" name="campoDeTexto1" value = "" maxlength="9"/>
+
+			<br>
+
+			<br>
+
+			<a href="Portada.html" target="_blank" id="Entrar">Entrar</a>	
+
+		</article>	
+
+			
+
+		</header>
+
+			
+
+		<section id="entradas">
+
+
+
+			<article id="publicacion">
+
+				
+
+			</article>
+
+
+
+			<article id="publicacion">
+
+				<p id="nombrePublicacion">Julio</p>
+
+				<p id="horaPublicacion">Hace 1 hora...</p>
+
+				<img src="fotos/julio_20170421_1154.jpg" alt = "Foto" id="usuarioPublicacion"/>
+
+				<h4 id="tituloPublicacion">Saeta al Señor de los olivos</h4>
+
+				<p id="textoPublicacion">Aqu&iacute; os dejo un trozo de la saeta que cante el otro...</p>
+
+
+
+			</article>
+
+
+
+			<article id="publicacion">
+
+				<p id="nombrePublicacion">Carmen</p>
+
+				<p id="horaPublicacion">Hace 1 hora...</p>
+
+				<img src="fotos/carmen_20170421_1147.jpg" alt = "Foto" id="usuarioPublicacion"/>
+
+				<h4 id="tituloPublicacion">Empieza el mes de estudios</h4>
+
+				<p id="textoPublicacion">Se acabo el descanso pre examenes, toca ponerse serios con...</p>
+
+
+
+			</article>
+
+
+
+			<article id="publicacion">
+
+				<p id="nombrePublicacion">Maritere</p>
+
+				<p id="horaPublicacion">Hace 2 horas...</p>
+
+				<img src="fotos/maritere_20170421_1157.jpg" alt = "Foto" id="usuarioPublicacion"/>
+
+				<h4 id="tituloPublicacion">Preparando las oposiciones</h4>
+
+				<p id="textoPublicacion">Vamos a por ello, aunque sea duro seguro que merece la...</p>
+
+
+
+			</article>
+
+
+
+			<article id="publicacion">
+
+				<p id="nombrePublicacion">Laura</p>
+
+				<p id="horaPublicacion">Hace 3 horas...</p>
+
+				<img src="fotos/laura_20170421_1206.jpg" alt = "Foto" id="usuarioPublicacion"/>
+
+				<h4 id="tituloPublicacion">En las Azores</h4>
+
+				<p id="textoPublicacion">Viaje de fin de carrera con todas las personas que m&aacute;s quiero...</p>
+
+
+
+			</article>
+
+
+
+			<article id="publicacion">
+
+				<p id="nombrePublicacion">Dani</p>
+
+				<p id="horaPublicacion">Hace 3 horas...</p>
+
+				<img src="fotos/dani_20170421_1212.jpg" alt = "Foto" id="usuarioPublicacion"/>
+
+				<h4 id="tituloPublicacion">Cervecita con los colegas</h4>
+
+				<p id="textoPublicacion">Nada mejor que una tarde-noche con colegas para disfrutar del...</p>
+
+
+
+			</article>
+
+
+
+		</section>		
+
+		
+
+		<aside>
+
+				<nav id="opciones">
+
+					<a id="cursor" href="portada.html">BIOGRAFIA</a>
+
+					<a id="cursor" href="angel/angel_20170421_1149.html">FOTOS</a> 
+
+					<a id="cursor" href="angel/angel_20170421_1150.html">INFORMACION</a>
+
+				</nav>
+
+		</aside>
+
+		
+
+		<footer>
+
+
+
+			<h4>Contacto</h4>
+
+			<p>hifive@gmail.es</p> 
+
+			<address>Granada, 18071, Telefono: 958596931</address> 
+
+		</footer>
+	</body>
+
+</html>
+
+

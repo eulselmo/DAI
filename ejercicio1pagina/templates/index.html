@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+
+		<title>{{ titulo }}</title>
+
+		<link rel= "stylesheet" type="text/css" href= "static/css/index.css">
+
+		<link rel="shortcut icon" href="icono/icono.ico">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+
+	<body>	
+		<header>
+			<a href="portada.html"><img src="https://previews.123rf.com/images/blueringmedia/blueringmedia1409/blueringmedia140900101/31499884-Illustration-of-a-hi-five-artwork-with-a-palm-on-a-white-background-Stock-Vector.jpg" alt = "Logo" id="modificado1"/></a>
+			<p id="titulo">HiFIVE</p>
+			<p id="eslogan">{{eslogan}}!</p>
+
+		<article>
+
+			<p id="usuario">Usuario</p>
+
+			<input type = "text" id = "campoDeTexto1" name="campoDeTexto1" value = "" maxlength="15"/> <br>
+
+
+			<p id="contrasena">Contrase&ntilde;a</p>
+
+			<input type = "password" id = "campoDeTexto1" name="campoDeTexto1" value = "" maxlength="9"/>
+
+			<br>
+
+			<br>
+
+			<a target="_blank" id="Entrar" href="">Entrar</a>	
+
+		</article>	
+		</header>
+
+			
+
+		<section id="entradas">
+
+			{% for post in posts %} 
+			<article id="publicacion">
+        		<p id="texto">{{ post.autor.nombre }} dice: <b>{{ post.texto }}</b></p> 
+        		</article>
+			{% endfor %}
+
+		</section>		
+
+
+		<aside>
+
+				<nav id="opciones">
+
+					<a id="cursor" href="portada.html">BIOGRAFIA</a>
+
+					<a id="cursor" href="angel/angel_20170421_1149.html">FOTOS</a> 
+
+					<a id="cursor" href="angel/angel_20170421_1150.html">INFORMACION</a>
+
+				</nav>
+
+		</aside>
+
+		<footer>
+
+			<h4>Contacto</h4>
+
+			<p>{{ correo }}</p> 
+
+			<address>{{ direccion }}</address> 
+
+		</footer>
+	</body>
+
+</html>
+
+

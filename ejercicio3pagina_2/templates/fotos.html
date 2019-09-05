@@ -1,0 +1,9 @@
+{% extends "plantilla.html" %}
+{% block content %}	
+	{% for post in posts %} 
+	<article id="publicacion">
+        <p id="texto">{{ post.autor.nombre }}:</b></p>
+	<img src="http://es.web.img3.acsta.net/c_300_300/pictures/16/11/24/10/05/491594.jpg"/> 
+        </article>
+	{% endfor %}
+{% endblock%}
